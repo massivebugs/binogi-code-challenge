@@ -14,8 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <Navbar className="py-5 mx-auto" />
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <Navbar className="py-5 mx-auto" />
+        {children}
+      </body>
     </html>
   );
 }
