@@ -7,6 +7,7 @@ import { getRecipeIdFromUri } from "@/lib/utils";
 import { useState } from "react";
 import BookmarkIcon from "../atoms/BookmarkIcon";
 import { useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 type Props = {
   recipe: components["schemas"]["Recipe"];
@@ -14,9 +15,10 @@ type Props = {
 };
 
 export default function BookmarkRecipeButton({ recipe, className }: Props) {
+  const { toast } = useToast();
   const recipeId = getRecipeIdFromUri(recipe.uri) as string;
 
-  const [isBookmarked, setIsBookmarked] = useState<boolean>(false);
+  const [isBookmarked, setIsBookmarked] = useState<boolean | null>(null);
 
   useEffect(() => {
     setIsBookmarked(getBookmarkedRecipes().has(recipeId));
@@ -27,9 +29,15 @@ export default function BookmarkRecipeButton({ recipe, className }: Props) {
     if (bookmarks.has(recipeId)) {
       bookmarks.delete(recipeId);
       setIsBookmarked(false);
+      toast({
+        title: "Removed from bookmarks!",
+      });
     } else {
       bookmarks.set(recipeId, recipe);
       setIsBookmarked(true);
+      toast({
+        title: "Added to bookmarks!",
+      });
     }
 
     localStorage.setItem(
@@ -39,19 +47,21 @@ export default function BookmarkRecipeButton({ recipe, className }: Props) {
   }
 
   return (
-    recipeId && (
+    recipeId &&
+    isBookmarked !== null && (
       <Button
         onClick={(e) => {
           e.stopPropagation();
           onClick();
         }}
-        className={className}
+        className={`p-2 ${className}`}
         variant={isBookmarked ? "default" : "outline"}
         aria-label="Click to bookmark this recipe"
       >
+        {isBookmarked ? "Bookmarked" : "Bookmark this recipe!"}
         <BookmarkIcon
-          width={30}
-          height={30}
+          width={50}
+          height={50}
           variant={isBookmarked ? "light" : "dark"}
         />
       </Button>
