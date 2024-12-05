@@ -1,5 +1,6 @@
 import RecipeNutrients from "@/app/ui/atoms/RecipeNutrients";
 import RecipeTags from "@/app/ui/atoms/RecipeTags";
+import { Separator } from "@/components/ui/separator";
 import { getRecipeById } from "@/lib/api";
 import Image from "next/image";
 
@@ -15,28 +16,39 @@ export default async function Page({ params }: Props) {
 
   return (
     <main className="flex justify-center">
-      <div className="w-[300px] md:w-[500px] lg:w-[700px] flex flex-col justify-center items-center gap-2">
+      <div className="w-[300px] md:w-[500px] lg:w-[700px]">
         <Image
           width={recipe.images.REGULAR.width}
           height={recipe.images.REGULAR.height}
           src={recipe.images.REGULAR.url}
           alt={"Image of recipe"}
-          className="rounded-md"
+          className="rounded-md mx-auto mb-5"
         />
-        <h2 className="font-bold text-xl">{recipe.label}</h2>
-        <p>{Math.round(recipe.calories ?? 0)} kcal</p>
-        <p>Ingredients:</p>
-        <ul className="list-disc list-inside">
-          {recipe.ingredientLines.map((v) => (
-            <li key={v}>{v}</li>
-          ))}
-        </ul>
-        <p>Nutrients:</p>
-        <RecipeNutrients
-          nutrients={recipe.totalNutrients}
-          className="h-[150px]"
-        />
-        <RecipeTags tags={[...recipe.healthLabels, ...recipe.dietLabels]} />
+        <div className="flex flex-col md:flex-row gap-2 items-start md:items-center justify-center mb-5">
+          <h2 className="font-bold text-xl">{recipe.label}</h2>
+          <span className="italic text-slate-500">
+            {Math.round(recipe.calories)} kcal
+          </span>
+        </div>
+        <Separator className="my-3" />
+        <div className="mb-3">
+          <h3 className="font-semibold">Ingredients:</h3>
+          <ul className="list-disc list-inside">
+            {recipe.ingredientLines.map((v) => (
+              <li key={v}>{v}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mb-3">
+          <h3 className="font-semibold">Nutrients:</h3>
+          <RecipeNutrients
+            nutrients={recipe.totalNutrients}
+            className="h-[150px]"
+          />
+        </div>
+        <div className="mb-3">
+          <RecipeTags tags={[...recipe.healthLabels, ...recipe.dietLabels]} />
+        </div>
       </div>
     </main>
   );
