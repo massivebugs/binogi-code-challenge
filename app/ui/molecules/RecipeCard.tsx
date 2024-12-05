@@ -20,11 +20,11 @@ export default function RecipeCard({ recipe, className }: Props) {
     <Card className={`${className} cursor-pointer`}>
       <CardHeader>
         <div className="flex flex-col md:flex-row gap-4">
-          {recipe.images?.THUMBNAIL?.url && (
+          {recipe.images.THUMBNAIL.url && (
             <Image
-              width={recipe.images?.THUMBNAIL?.width}
-              height={recipe.images?.THUMBNAIL?.height}
-              src={recipe.images?.THUMBNAIL.url}
+              width={recipe.images.THUMBNAIL?.width}
+              height={recipe.images.THUMBNAIL?.height}
+              src={recipe.images.THUMBNAIL.url}
               alt={recipe.label ?? "Image of recipe"}
               className="mx-auto md:mx-0"
             />

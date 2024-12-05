@@ -24,7 +24,9 @@ export default async function Home({ searchParams }: Props) {
         <SearchInput placeholder="Name of a Recipe" className="w-[300px]" />
         <Suspense
           key={query + page}
-          fallback={<RecipeCardLoading className="w-[700px] h-[250px]" />}
+          fallback={
+            <RecipeCardLoading className="w-[300px] md:w-[500px] lg:w-[700px] h-[250px]" />
+          }
         >
           <RecipeSearchResults query={query} page={page} />
         </Suspense>

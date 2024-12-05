@@ -52,7 +52,7 @@ export const getRecipeById = async (id: string) => {
           type: "public",
           app_id: process.env.EDAMAM_API_APP_ID as string,
           app_key: process.env.EDAMAM_API_KEY as string,
-          imageSize: ["SMALL"],
+          imageSize: ["REGULAR"],
           field: [
             "uri",
             "label",
