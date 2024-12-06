@@ -25,6 +25,7 @@ export default async function Page({ params }: Props) {
           alt={"Image of recipe"}
           className="rounded-md mx-auto mb-5"
           priority={true}
+          unoptimized={true}
         />
         <div className="flex flex-col md:flex-row gap-2 items-start md:items-center justify-center mb-5">
           <h2 className="font-bold text-xl">{recipe.label}</h2>

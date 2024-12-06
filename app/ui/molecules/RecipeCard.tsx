@@ -27,6 +27,7 @@ export default function RecipeCard({ recipe, className }: Props) {
               src={recipe.images.THUMBNAIL.url}
               alt={recipe.label ?? "Image of recipe"}
               className="mx-auto md:mx-0"
+              unoptimized={true}
             />
           )}
           <div className="flex flex-col gap-2">
