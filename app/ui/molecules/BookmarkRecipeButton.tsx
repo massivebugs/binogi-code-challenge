@@ -2,7 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { components } from "@/lib/edamam/interfaces";
-import { getBookmarkedRecipes } from "@/lib/localstorage";
+import {
+  getBookmarkedRecipes,
+  LOCALSTORAGE_BOOKMARKED_RECIPES,
+} from "@/lib/localstorage";
 import { getRecipeIdFromUri } from "@/lib/utils";
 import { useState } from "react";
 import BookmarkIcon from "../atoms/BookmarkIcon";
@@ -41,7 +44,7 @@ export default function BookmarkRecipeButton({ recipe, className }: Props) {
     }
 
     localStorage.setItem(
-      "bookmarked_recipes",
+      LOCALSTORAGE_BOOKMARKED_RECIPES,
       JSON.stringify(Array.from(bookmarks))
     );
   }
