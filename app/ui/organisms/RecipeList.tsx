@@ -74,17 +74,23 @@ export default function RecipeList({
     <div
       className={`flex flex-col justify-center gap-[0.7em] items-center ${className}`}
     >
-      {recipes.map((recipe) => (
-        <Link
-          key={recipe?.uri}
-          href={`/recipes/${getRecipeIdFromUri(recipe.uri)}`}
-        >
-          <RecipeCard
-            recipe={recipe as components["schemas"]["Recipe"]}
-            className="max-w-full"
-          />
-        </Link>
-      ))}
+      {recipes.length > 0 ? (
+        recipes.map((recipe) => (
+          <Link
+            key={recipe?.uri}
+            href={`/recipes/${getRecipeIdFromUri(recipe.uri)}`}
+          >
+            <RecipeCard
+              recipe={recipe as components["schemas"]["Recipe"]}
+              className="max-w-full"
+            />
+          </Link>
+        ))
+      ) : (
+        <div className="w-full rounded-md py-3 text-center bg-slate-100">
+          No Recipes here!
+        </div>
+      )}
       {initialContKey && (
         <div
           ref={loadingRef}
