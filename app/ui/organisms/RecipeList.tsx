@@ -81,7 +81,7 @@ export default function RecipeList({
         >
           <RecipeCard
             recipe={recipe as components["schemas"]["Recipe"]}
-            className="w-full"
+            className="max-w-full"
           />
         </Link>
       ))}
