@@ -27,6 +27,8 @@ export default function SearchInput({ placeholder, className }: Props) {
       } else {
         params.delete("query");
       }
+
+      params.delete("page");
       replace(`${pathname}?${params.toString()}`);
     }, 300)
   );

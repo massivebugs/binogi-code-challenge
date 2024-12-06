@@ -494,7 +494,7 @@ export interface components {
             from: number;
             to: number;
             count: number;
-            _links: components["schemas"]["Link"];
+            _links: components["schemas"]["Links"];
             hits: components["schemas"]["Hit"][];
         };
         Errors: components["schemas"]["Error"][];

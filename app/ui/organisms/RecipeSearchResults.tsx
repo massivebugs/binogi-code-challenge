@@ -6,15 +6,16 @@ type Props = {
   page: number;
 };
 
-export default async function RecipeSearchResults({ query, page }: Props) {
-  // TODO: Use this later
-  console.log(page);
-  const recipes = await getRecipes(query);
+export default async function RecipeSearchResults({ query }: Props) {
+  const { recipes, contKey } = await getRecipes(query);
 
   return (
-    <RecipeList
-      recipes={recipes}
-      className="w-[300px] md:w-[500px] lg:w-[700px]"
-    />
+    <div className="flex flex-col pb-10">
+      <RecipeList
+        initialContKey={contKey}
+        initialRecipes={recipes}
+        className="w-[300px] md:w-[500px] lg:w-[700px]"
+      />
+    </div>
   );
 }

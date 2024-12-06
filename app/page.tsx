@@ -15,7 +15,7 @@ export default async function Home({ searchParams }: Props) {
 
   // Recipe search query parameters
   const query = params?.query ?? "";
-  const page = Number(params?.page) ?? 0;
+  const page = Number(params?.page) || 1;
 
   return (
     <main className="flex flex-col">

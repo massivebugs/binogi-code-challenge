@@ -952,7 +952,8 @@ components:
         count:
           type: integer
         _links:
-          $ref: '#/components/schemas/Link'
+          # Edited because original schema is wrong as the endpoint actually returns Links
+          $ref: '#/components/schemas/Links'
         hits:
           type: array
           items:

@@ -18,9 +18,10 @@ export default function Page() {
   return (
     <main className="flex flex-col">
       <h1 className="text-center mb-3">Bookmarks</h1>
-      <div className="flex flex-col gap-5 items-center justify-center">
+      <div className="flex flex-col gap-5 items-center justify-center pb-10">
         <RecipeList
-          recipes={recipes}
+          initialContKey={null}
+          initialRecipes={recipes}
           className="w-[300px] md:w-[500px] lg:w-[700px]"
         />
       </div>
