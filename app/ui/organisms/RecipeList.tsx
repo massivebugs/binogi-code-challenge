@@ -82,7 +82,7 @@ export default function RecipeList({
           >
             <RecipeCard
               recipe={recipe as components["schemas"]["Recipe"]}
-              className="max-w-full"
+              className="max-w-full transition-all hover:drop-shadow-md hover:-translate-y-1"
             />
           </Link>
         ))
