@@ -50,6 +50,7 @@ export async function getRecipes(query: string, contKey?: string) {
       contKey: nextContKey,
     };
   } catch (e) {
+    // TODO
     throw e;
   }
 }
@@ -72,6 +73,7 @@ export const getRecipeById = async (id: string) => {
             "image",
             "images",
             "calories",
+            "yield",
             "ingredientLines",
             "totalNutrients",
             "healthLabels",
@@ -87,6 +89,7 @@ export const getRecipeById = async (id: string) => {
 
     return data.recipe;
   } catch (e) {
+    // TODO
     throw e;
   }
 };

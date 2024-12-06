@@ -15,6 +15,7 @@ type Props = {
   className?: string;
 };
 
+// Infinite-Scroll Recipe List
 export default function RecipeList({
   initialContKey,
   initialRecipes,
@@ -68,7 +69,7 @@ export default function RecipeList({
         contKey.current = nextContKey;
       }
     })();
-  }, [isEndOfList]);
+  }, [searchParams, isEndOfList]);
 
   return (
     <div

@@ -35,6 +35,7 @@ export default function SearchInput({ placeholder, className }: Props) {
   return (
     <div className={`flex gap-1 ${className}`}>
       <Input
+        type="text"
         placeholder={placeholder}
         onChange={debouncedOnChange.current}
         defaultValue={searchParams.get("query")?.toString()}

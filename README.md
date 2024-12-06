@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a React.js + TypeScript + Next.js project for the `Binogi Code Challenge`.
 
-## Getting Started
+You can view the running application hosted on Vercel: https://binogi-code-challenge-dahyun-kim.vercel.app/
 
-First, run the development server:
+## Functionality
+
+- Search View
+
+  - Recipes can be looked up using the search input at the top page.
+  - Inputs are debounced by 300ms to prevent rapid API calls.
+  - Results can be automatically loaded by scrolling down (infinite scroll).
+    - Please don't scroll down too fast (API rate limits)
+  - You can click on a Recipe Card to navigate to the Recipe View
+
+- Recipe View
+
+  - More details of the Recipe are shown here.
+  - There is a button to toggle Recipe Bookmark.
+
+- Bookmark View
+  - Shows a list of all the Bookmarked Recipes.
+  - You can refresh the page and the data will persist (LocalStorage)
+
+## Design considerations
+
+- EDAMAM API interfaces were automatically generated using [openapi-typescript](https://github.com/openapi-ts/openapi-typescript)
+- Components are organized by loosely following [Atomic design principles](https://bradfrost.com/blog/post/atomic-web-design/)
+- As this was a front-end challenge, LocalStorage to persist bookmark data
+- Tailwind CSS and [shadcn/ui](https://ui.shadcn.com/) was used as a CSS framework and Component Library
+
+## To run this locally
+
+First, install necessary packages:
+
+```bash
+npm instal
+# or
+pnpm install
+```
+
+And then run the development server
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

@@ -35,7 +35,12 @@ export default async function Page({ params }: Props) {
         </div>
         <Separator className="my-3" />
         <div className="mb-3">
-          <h3 className="font-semibold">Ingredients:</h3>
+          <h3 className="font-semibold">
+            Ingredients:{" "}
+            <span className="italic text-slate-800">
+              Yields {recipe.yield} servings
+            </span>
+          </h3>
           <ul className="list-disc list-inside">
             {recipe.ingredientLines.map((v) => (
               <li key={v}>{v}</li>
