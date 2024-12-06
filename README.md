@@ -30,10 +30,13 @@ You can view the running application hosted on Vercel: https://binogi-code-chall
 
 ## To run this locally
 
+Before running this, please ensure that you have set the [Edamam Recipe Search API](https://developer.edamam.com/edamam-docs-recipe-api) application id and the API key
+environment variables. (See .env.example for reference)
+
 First, install necessary packages:
 
 ```bash
-npm instal
+npm install
 # or
 pnpm install
 ```
